@@ -26,8 +26,9 @@ def calculate(amount, term, interest):
     discountFactor = (interestPow - 1)/(interestPow*rInterest)
     monthlyPayment = amount/discountFactor
     totalPaid = monthlyPayment * nPayments
+    interestPaid = totalPaid - amount
     
-    click.echo(f'Your estimated monthly payment is: {monthlyPayment}. You will pay {totalPaid-amount} in interest and {totalPaid} total.')
+    click.echo('Your estimated monthly payment is: ${0:.2f}. You will pay ${1:.2f} in interest and ${2:.2f} total.'.format(monthlyPayment, interestPaid, totalPaid))
 
 if __name__ == '__main__':
     #pylint: disable=no-value-for-parameter
